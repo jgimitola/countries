@@ -3,7 +3,10 @@
   "tabWidth": 2,
 
   "importOrder": [
+    "^react/(.*)$",
     "^next/(.*)$",
+    "^@mui/(.*)$",
+    "^@emotion/(.*)$",
     "^@components/(.*)$",
     "^@components/(.*)$",
     "^@contexts/(.*)$",
