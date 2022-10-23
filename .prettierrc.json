@@ -3,6 +3,7 @@
   "tabWidth": 2,
 
   "importOrder": [
+    "^react/(.*)$",
     "^next/(.*)$",
     "^@components/(.*)$",
     "^@components/(.*)$",
@@ -15,7 +16,8 @@
     "^@services/(.*)$",
     "^@styles/(.*)$",
     "^@assets/(.*)$",
-    "^[./]"
+    "^[./]",
+    "<THIRD_PARTY_MODULES>"
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
