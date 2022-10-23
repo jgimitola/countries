@@ -1,0 +1,22 @@
+{
+  "singleQuote": true,
+  "tabWidth": 2,
+
+  "importOrder": [
+    "^next/(.*)$",
+    "^@components/(.*)$",
+    "^@components/(.*)$",
+    "^@contexts/(.*)$",
+    "^@hooks/(.*)$",
+    "^@layouts/(.*)$",
+    "^@libs/(.*)$",
+    "^@redux/(.*)$",
+    "^@schemas/(.*)$",
+    "^@services/(.*)$",
+    "^@styles/(.*)$",
+    "^@assets/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
