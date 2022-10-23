@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["./modules/components/*"],
+      "@contexts/*": ["./modules/contexts/*"],
+      "@hooks/*": ["./modules/hooks/*"],
+      "@layouts/*": ["./modules/layouts/*"],
+      "@libs/*": ["./modules/libs/*"],
+      "@redux/*": ["./modules/redux/*"],
+      "@schemas/*": ["./modules/schemas/*"],
+      "@services/*": ["./modules/services/*"],
+      "@styles/*": ["./modules/styles/*"],
+      "@assets/*": ["./public/assets/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
