@@ -7,6 +7,7 @@ import { CacheProvider } from '@emotion/react';
 
 import createEmotionCache from '@libs/createEmotionCache';
 
+import global from '@styles/global.css';
 import theme from '@styles/theme';
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -18,6 +19,11 @@ export default function MyApp(props) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
+        <title>Countries WebApp</title>
+        <meta
+          name="description"
+          content="Search for any country and find interesting facts!"
+        />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={theme}>
