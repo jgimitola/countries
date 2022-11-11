@@ -2,7 +2,7 @@ import { Box, Container, Typography } from '@mui/material';
 
 import AsyncSearchField from '@components/elements/Fields/AsyncSearchField';
 
-import { fetchSearchPredicate } from '@services/api';
+import fetchSearchPredicate from '@services/api/fetchSearchPredicate';
 
 export default function Home() {
   return (
