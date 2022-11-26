@@ -3,11 +3,12 @@ import { Fragment, useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import TextField from '@mui/material/TextField';
+
+import StyledLink from './StyledLink';
 
 import debounce from 'lodash.debounce';
 
@@ -106,18 +107,10 @@ const AsyncSearchField = (props) => {
             href={`/countries/${state.cca3}`}
             passHref
           >
-            <Typography
-              component="a"
-              sx={{
-                display: 'block',
-                color: 'rgb(0 0 0 / 87%)',
-                textDecoration: 'none',
-                p: 1,
-              }}
-            >
+            <StyledLink>
               <Image src={state.flags.svg} width={24.4} height={16} />
               {props.key}
-            </Typography>
+            </StyledLink>
           </Box>
         );
       }}
