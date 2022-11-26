@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useMemo, useState } from 'react';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { Typography } from '@mui/material';
@@ -114,6 +115,7 @@ const AsyncSearchField = (props) => {
                 p: 1,
               }}
             >
+              <Image src={state.flags.svg} width={24.4} height={16} />
               {props.key}
             </Typography>
           </Box>
