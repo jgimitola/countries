@@ -108,7 +108,7 @@ const AsyncSearchField = (props) => {
             <Typography
               component="a"
               sx={{
-                display: 'inline-block',
+                display: 'block',
                 color: 'rgb(0 0 0 / 87%)',
                 textDecoration: 'none',
                 p: 1,
