@@ -8,8 +8,7 @@ This app was built mainly using:
 
 - [NextJS](https://nextjs.org/)
 - [Axios](https://axios-http.com/docs/intro)
-- [React Query](https://tanstack.com/query/v4/)
-- [React Redux](https://react-redux.js.org/)
+- [Zustand](https://react-redux.js.org/)
 - [MaterialUI React](https://mui.com/)
 
 ## Data origins

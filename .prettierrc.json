@@ -3,19 +3,22 @@
   "tabWidth": 2,
 
   "importOrder": [
+    "^react/?(.*)$",
     "^next/(.*)$",
-    "^@components/(.*)$",
+    "^@mui/(.*)$",
+    "^@emotion/(.*)$",
     "^@components/(.*)$",
     "^@contexts/(.*)$",
     "^@hooks/(.*)$",
     "^@layouts/(.*)$",
     "^@libs/(.*)$",
-    "^@redux/(.*)$",
+    "^@zustand/(.*)$",
     "^@schemas/(.*)$",
     "^@services/(.*)$",
     "^@styles/(.*)$",
     "^@assets/(.*)$",
-    "^[./]"
+    "^[./]",
+    "<THIRD_PARTY_MODULES>"
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
