@@ -1,11 +1,13 @@
+import { forwardRef } from 'react';
+
 import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const WrappedComponent = (props) => (
-  <Typography component="a" {...props}>
+const WrappedComponent = forwardRef((props, ref) => (
+  <Typography ref={ref} component="a" {...props}>
     {props.children}
   </Typography>
-);
+));
 
 const StyledLink = styled(WrappedComponent)(
   ({ theme }) => `
