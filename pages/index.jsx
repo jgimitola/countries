@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <Box component="main">
-      <Container>
+      <Container sx={{ position: 'relative', height: '100vh' }}>
         <Typography variant="h1" sx={{ textAlign: 'center' }}>
           Countries!
         </Typography>
