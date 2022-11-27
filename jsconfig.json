@@ -7,7 +7,7 @@
       "@hooks/*": ["./modules/hooks/*"],
       "@layouts/*": ["./modules/layouts/*"],
       "@libs/*": ["./modules/libs/*"],
-      "@redux/*": ["./modules/redux/*"],
+      "@zustand/*": ["./modules/zustand/*"],
       "@schemas/*": ["./modules/schemas/*"],
       "@services/*": ["./modules/services/*"],
       "@styles/*": ["./modules/styles/*"],

@@ -8,6 +8,8 @@ import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import TextField from '@mui/material/TextField';
 
+import useStore from '@zustand/store';
+
 import StyledLink from './StyledLink';
 
 import debounce from 'lodash.debounce';
@@ -21,6 +23,8 @@ const AsyncSearchField = (props) => {
     fetchController,
     ...rest
   } = props;
+
+  const renderMode = useStore((state) => state.renderMode);
 
   const [predicate, setPredicate] = useState('');
   const [open, setOpen] = useState(false);
@@ -104,7 +108,7 @@ const AsyncSearchField = (props) => {
           <Box
             key={props.id}
             component={Link}
-            href={`/countries/${state.cca3}`}
+            href={`/countries/${renderMode.toLowerCase()}/${state.cca3}`}
             passHref
           >
             <StyledLink>

@@ -1,6 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 
 const CountryInformation = (props) => {
   const { name, officialName, flagURL, languages, ...rest } = props;
@@ -12,6 +13,10 @@ const CountryInformation = (props) => {
         <Typography variant="h1">{name}</Typography>
         <Typography>{officialName}</Typography>
         <Typography>{languages}</Typography>
+
+        <Link href="/" passHref>
+          <Button variant="outlined">Back</Button>
+        </Link>
       </Container>
     </Box>
   );

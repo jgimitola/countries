@@ -12,7 +12,7 @@
     "^@hooks/(.*)$",
     "^@layouts/(.*)$",
     "^@libs/(.*)$",
-    "^@redux/(.*)$",
+    "^@zustand/(.*)$",
     "^@schemas/(.*)$",
     "^@services/(.*)$",
     "^@styles/(.*)$",
