@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import CountryInformation from '@components/compounds/CountryInformation';
-import ErrorOnLoad from '@components/compounds/ErrorOnLoad';
+import ErrorOnLoad from '@components/compounds/ErrorOnLoad/index';
 
 import useParseCountryInformation from '@hooks/useParseCountryInformation';
 
