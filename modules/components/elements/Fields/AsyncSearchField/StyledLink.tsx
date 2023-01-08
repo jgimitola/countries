@@ -1,15 +1,8 @@
-import { forwardRef } from 'react';
+import Link from 'next/link';
 
-import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const WrappedComponent = forwardRef((props, ref) => (
-  <Typography ref={ref} component="a" {...props}>
-    {props.children}
-  </Typography>
-));
-
-const StyledLink = styled(WrappedComponent)(
+const StyledLink = styled(Link)(
   ({ theme }) => `
   display: flex;
   gap: ${theme.spacing(1)};
