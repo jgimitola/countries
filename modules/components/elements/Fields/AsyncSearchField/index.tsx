@@ -120,17 +120,15 @@ const AsyncSearchField = (props: AsyncSearchFieldProps) => {
       )}
       renderOption={(props, state: CountryResponse) => {
         return (
-          <Box
+          <StyledLink
             key={props.id}
-            component={Link}
             href={`/countries/${renderMode.toLowerCase()}/${state.cca3}`}
-            passHref
           >
-            <StyledLink>
-              <Image src={state.flags.svg} width={24.4} height={16} />
-              {props.key}
-            </StyledLink>
-          </Box>
+            {state.flags.svg && (
+              <Image src={state.flags.svg} alt="" width={24.4} height={16} />
+            )}
+            {state.name.official}
+          </StyledLink>
         );
       }}
     />
