@@ -1,10 +1,10 @@
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import { Fragment, SetStateAction, useEffect, useMemo, useState } from 'react';
 
 import Image from 'next/image';
-import Link from 'next/link';
+
+import { CountryResponse } from '@geonatives-types/index';
 
 import Autocomplete from '@mui/material/Autocomplete';
-import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import TextField from '@mui/material/TextField';
 
@@ -14,7 +14,15 @@ import StyledLink from './StyledLink';
 
 import debounce from 'lodash.debounce';
 
-const AsyncSearchField = (props) => {
+interface AsyncSearchFieldProps {
+  label: string;
+  placeholder: string;
+  isOptionEqualToValue: (option: any, value: any) => boolean;
+  getOptionLabel: (option: any) => string;
+  fetchController: (...args: any) => any;
+}
+
+const AsyncSearchField = (props: AsyncSearchFieldProps) => {
   const {
     label,
     placeholder,
@@ -26,10 +34,13 @@ const AsyncSearchField = (props) => {
 
   const renderMode = useStore((state) => state.renderMode);
 
-  const [predicate, setPredicate] = useState('');
-  const [open, setOpen] = useState(false);
-  const [options, setOptions] = useState({ status: 200, options: [] });
-  const loading =
+  const [predicate, setPredicate] = useState<string>('');
+  const [open, setOpen] = useState<boolean>(false);
+  const [options, setOptions] = useState<{ status: number; options: any[] }>({
+    status: 200,
+    options: [],
+  });
+  const loading: boolean =
     Boolean(predicate) &&
     open &&
     options.options.length === 0 &&
@@ -43,7 +54,11 @@ const AsyncSearchField = (props) => {
     setOpen(false);
   };
 
-  const handleInputChange = async (event, value, reason) => {
+  const handleInputChange = async (
+    _event: any,
+    value: SetStateAction<string>,
+    _reason: any
+  ) => {
     setPredicate(value);
   };
 
@@ -103,7 +118,7 @@ const AsyncSearchField = (props) => {
           }}
         />
       )}
-      renderOption={(props, state) => {
+      renderOption={(props, state: CountryResponse) => {
         return (
           <Box
             key={props.id}
