@@ -1,12 +1,11 @@
+import { CountryResponse } from '@geonatives-types/index';
+
 import { get } from '@services/http';
 
-const fetchSearchPredicate = async (predicate) => {
-  const response = await get(`/name/${predicate}`);
+const fetchSearchPredicate = async (predicate: string) => {
+  const response = await get<CountryResponse[]>(`/name/${predicate}`);
 
-  if (response.status < 400)
-    return { options: response.data, status: response.status };
-
-  return { options: [], status: response.status };
+  return { options: response.data || [], status: response.status };
 };
 
 export default fetchSearchPredicate;

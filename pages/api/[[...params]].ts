@@ -1,38 +1,23 @@
-import { get, patch, post, put, remove } from '@services/http';
+import { get } from '@services/http';
+
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 const globalConfig = { baseURL: process.env.API_URL };
 
-const handler = async (req, res) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const URL = req.url.split('/api')[1];
+    const URL = req.url!.split('/api')[1];
     const METHOD = req.method;
-    const BODY = req.body;
 
     let request;
     switch (METHOD) {
       case 'GET':
-        request = await get(URL, globalConfig);
-        break;
-
-      case 'DELETE':
-        request = await remove(URL, globalConfig);
-        break;
-
-      case 'POST':
-        request = await post(URL, BODY, globalConfig);
-        break;
-
-      case 'PUT':
-        request = await put(URL, BODY, globalConfig);
-        break;
-
-      case 'PATCH':
-        request = await patch(URL, BODY, globalConfig);
+        request = await get<any>(URL, globalConfig);
         break;
 
       default:
         res.status(400).json({ message: 'Method not supported yet.' });
-        break;
+        return;
     }
 
     res.status(request.status).json(request.data);

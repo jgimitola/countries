@@ -1,6 +1,17 @@
 import { useMemo } from 'react';
 
-const useParseCountryInformation = (data) => {
+import { CountryResponse } from '@geonatives-types/index';
+
+export interface CountryInformation {
+  name: string;
+  officialName: string;
+  flagURL?: string;
+  languages: string;
+}
+
+const useParseCountryInformation = (
+  data: CountryResponse
+): CountryInformation => {
   const information = useMemo(
     () => ({
       name: data.name.common,

@@ -17,6 +17,7 @@
 
     "baseUrl": ".",
     "paths": {
+      "@geonatives-types/*": ["./modules/geonatives-types/*"],
       "@components/*": ["./modules/components/*"],
       "@contexts/*": ["./modules/contexts/*"],
       "@hooks/*": ["./modules/hooks/*"],

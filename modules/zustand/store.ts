@@ -1,9 +1,17 @@
 import create from 'zustand';
 
-const useStore = create((set) => {
+type RenderMode = 'SSG' | 'SSR';
+
+interface AppState {
+  renderMode: string;
+  changeRenderMode: (mode: RenderMode) => void;
+}
+
+const useStore = create<AppState>((set) => {
   return {
     renderMode: 'SSG',
-    changeRenderMode: (mode) => set((state) => ({ renderMode: mode })),
+    changeRenderMode: (mode: RenderMode) =>
+      set((state) => ({ renderMode: mode })),
   };
 });
 

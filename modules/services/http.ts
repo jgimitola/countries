@@ -1,57 +1,29 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 
-const baseURL = '/api';
+const baseURL: string = '/api';
 
-const requestWrapper = async (request, { url, options, data }) => {
-  const config = { baseURL, ...options };
+interface RequestResponse<T> {
+  status: number;
+  data: T | null;
+}
 
-  const requestObject = await request.apply(
-    this,
-    data ? [url, data, config] : [url, config]
-  );
-  const requestData = requestObject.data;
-
-  return { status: requestObject.status, data: requestData };
-};
-
-const get = async (url, options) => {
+const get = async <T>(
+  url: string,
+  options?: AxiosRequestConfig
+): Promise<RequestResponse<T>> => {
   try {
-    return await requestWrapper(axios.get, { url, options });
-  } catch (error) {
-    return error.response;
+    const requestObject = await axios.get<T>(url, { baseURL, ...options });
+    const requestData = requestObject.data;
+
+    return {
+      status: requestObject.status,
+      data: requestData,
+    };
+  } catch (err: unknown) {
+    if (axios.isAxiosError(err))
+      return { status: err.response!.status, data: null };
+    return { status: -1, data: null };
   }
 };
 
-const remove = async (url, options) => {
-  try {
-    return await requestWrapper(axios.delete, { url, options });
-  } catch (error) {
-    return error.response;
-  }
-};
-
-const post = async (url, data, options) => {
-  try {
-    return await requestWrapper(axios.post, { url, data, options });
-  } catch (error) {
-    return error.response;
-  }
-};
-
-const put = async (url, data, options) => {
-  try {
-    return await requestWrapper(axios.put, { url, data, options });
-  } catch (error) {
-    return error.response;
-  }
-};
-
-const patch = async (url, data, options) => {
-  try {
-    return await requestWrapper(axios.patch, { url, data, options });
-  } catch (error) {
-    return error.response;
-  }
-};
-
-export { get, remove, post, put, patch };
+export { get };

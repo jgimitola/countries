@@ -1,3 +1,5 @@
+import { CountryResponse } from '@geonatives-types/index';
+
 import { Box, Container, Fab, Typography } from '@mui/material';
 
 import AsyncSearchField from '@components/elements/Fields/AsyncSearchField';
@@ -10,7 +12,7 @@ export default function Home() {
   const renderMode = useStore((state) => state.renderMode);
   const changeRenderMode = useStore((state) => state.changeRenderMode);
 
-  const handleOnClick = () => {
+  const handleOnClick = (): void => {
     changeRenderMode(renderMode === 'SSG' ? 'SSR' : 'SSG');
   };
 
@@ -23,8 +25,11 @@ export default function Home() {
         <AsyncSearchField
           label="Search"
           placeholder="Country name"
-          isOptionEqualToValue={(option, value) => option.cca3 === value.cca3}
-          getOptionLabel={(option) => option.name.official}
+          isOptionEqualToValue={(
+            option: CountryResponse,
+            value: CountryResponse
+          ) => option.cca3 === value.cca3}
+          getOptionLabel={(option: CountryResponse) => option.name.official}
           fetchController={fetchSearchPredicate}
         />
 
